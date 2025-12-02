@@ -4,11 +4,13 @@ const navMenu = document.querySelector('.nav-menu');
 
 if(hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active'); // Animates the burger icon (optional)
+        navMenu.classList.toggle('active');   // Slides the menu in
     });
 
     // Close menu when link is clicked
     document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
         navMenu.classList.remove('active');
     }));
 }
