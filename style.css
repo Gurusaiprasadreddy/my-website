@@ -172,69 +172,75 @@ body::after {
 }
 
 /* --- 4. HERO SECTION --- */
+/* --- 4. HERO SECTION --- */
 .hero {
-    height: 100vh;
+    min-height: 100vh; /* Ensures it covers the full screen */
     display: flex;
-    align-items: center;
-    padding-top: 60px;
+    align-items: center; /* Vertically centers the content */
+    padding-top: 100px; /* Pushes content down so Navbar doesn't cover it */
     position: relative;
+    overflow: hidden; /* Prevents scrollbars if blobs go off screen */
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.1fr 1fr; /* Text gets slightly more space */
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
+/* Text Styles */
 .hero-text h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--secondary);
-    margin-bottom: 0.5rem;
+    color: var(--secondary); /* Cyan color */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: 3.8rem; /* Large text for name */
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
+    color: var(--text-white);
 }
 
 .hero-text h2 {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
     color: var(--text-gray);
+    font-weight: 600;
 }
 
 .hero-text p {
-    max-width: 500px;
+    max-width: 550px;
     color: var(--text-gray);
     font-size: 1.1rem;
-    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
 }
 
+/* Buttons */
 .btn-group {
     display: flex;
-    gap: 1.5rem;
+    gap: 20px;
 }
 
 .btn {
-    padding: 12px 32px;
+    padding: 14px 34px;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    border: 2px solid transparent;
+    font-size: 1rem;
 }
 
 .btn-primary {
     background: var(--gradient-orange);
     color: white;
     box-shadow: 0 10px 25px -5px rgba(246, 75, 0, 0.4);
+    border: 2px solid transparent;
 }
 
 .btn-primary:hover {
@@ -244,8 +250,8 @@ body::after {
 
 .btn-secondary {
     background: transparent;
-    border-color: var(--primary);
-    color: var(--primary);
+    border: 2px solid var(--primary);
+    color: var(--text-white); /* White text looks cleaner on dark bg */
 }
 
 .btn-secondary:hover {
@@ -255,32 +261,81 @@ body::after {
     transform: translateY(-3px);
 }
 
+/* Image & Blob Styles (The exact screenshot look) */
 .hero-img-wrapper {
     position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.blob-bg {
-    position: absolute;
     width: 450px;
     height: 450px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    z-index: -1;
-    animation: blob-bounce 8s infinite ease-in-out;
-    opacity: 0.6;
-    filter: blur(40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centers the wrapper */
 }
 
+/* The glowing shape behind the image */
+.blob-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Standard Organic Blob Shape */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0.7;
+    z-index: 0;
+    /* Soft animation */
+    animation: blob-bounce 8s infinite ease-in-out alternate; 
+}
+
+/* The actual image */
 .hero-img {
-    width: 400px;
-    height: 400px;
+    width: 95%; /* Slightly smaller than bg to show the border/glow */
+    height: 95%;
     object-fit: cover;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    border: 4px solid rgba(255,255,255,0.1);
-    animation: profile-morph 8s infinite ease-in-out;
-    background: #1a0520; /* Placeholder color if image fails */
+    /* EXACT same shape as the blob background */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    z-index: 1;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    /* Sync animation so they move together */
+    animation: blob-bounce 8s infinite ease-in-out alternate;
+}
+
+/* Animation Definition */
+@keyframes blob-bounce {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translateY(0); }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translateY(-10px); }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness for Hero */
+@media screen and (max-width: 900px) {
+    .hero {
+        padding-top: 120px; /* More space on mobile */
+        height: auto;
+        padding-bottom: 50px;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-text p {
+        margin: 0 auto 30px auto; /* Center paragraph */
+    }
+
+    .btn-group {
+        justify-content: center;
+    }
+
+    .hero-img-wrapper {
+        width: 320px;
+        height: 320px;
+    }
 }
 
 /* --- 5. ABOUT SECTION --- */
