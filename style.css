@@ -936,7 +936,7 @@ body::after {
 }
 
 /* =========================================
-   MOBILE RESPONSIVE FIX (FORCE STACKING)
+   MOBILE RESPONSIVE
    ========================================= */
 @media screen and (max-width: 991px) {
     
@@ -1006,4 +1006,62 @@ body::after {
     .info-item { flex-direction: column; text-align: center; gap: 10px; }
     .social-links { justify-content: center; }
 }
+/* --- MOBILE MODAL FIX For Course Concepts --- */
+@media (max-width: 768px) {
+    /* 1. Ensure the background overlay is perfectly centered */
+    .modal {
+        padding: 20px;
+        display: none; /* Keep as none, JS will turn to flex */
+        align-items: center;
+        justify-content: center;
+    }
 
+    /* 2. Adjust the content box size for mobile */
+    .modal-content {
+        padding: 25px 20px;
+        width: 95%; /* Take most of the screen width */
+        max-height: 85vh; /* Don't let it go off the screen vertically */
+        border-radius: 20px;
+        overflow-y: auto; /* Enable scrolling if the list is long */
+        margin: 0; /* Reset margins for flex centering */
+    }
+
+    /* 3. Scale down the title */
+    .modal-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    /* 4. Force the list into a single column for readability */
+    .modal-list {
+        grid-template-columns: 1fr !important; 
+        gap: 10px;
+    }
+
+    /* 5. Compact list items */
+    .modal-list li {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* 6. Adjust close button position */
+    .close-modal {
+        right: 15px;
+        top: 10px;
+        font-size: 28px;
+    }
+}
+
+/* --- CONTACT FORM DARK MODE AUTOFILL FIX --- */
+/* This ensures the white background disappears when you type on mobile/Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: 0 0 0px 1000px #1a0520 inset !important; /* Match your card background */
+}
