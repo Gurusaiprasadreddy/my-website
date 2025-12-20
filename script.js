@@ -35,41 +35,41 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- MODAL LOGIC (Event Delegation) ---
     const modal = document.getElementById("skillModal");
+    const modalContent = document.getElementById("modalContent");
     const modalBody = document.getElementById("modalBody");
     const closeBtn = document.querySelector(".close-modal");
 
+    // Unified Click Logic for Course Concepts
     document.addEventListener('click', (e) => {
-        // Check if the clicked element (or its parent) has the 'clickable' class
-        const target = e.target.closest('.clickable');
-        if (target) {
-            const skillKey = target.getAttribute('data-skill');
-            const data = coursework[skillKey];
-            
+        const btn = e.target.closest('.clickable');
+        if (btn) {
+            const key = btn.getAttribute('data-skill');
+            const data = coursework[key];
             if (data) {
+                // Apply dynamic color theme based on the skill key
+                modalContent.className = 'modal-content theme-' + key.toLowerCase();
+                
+                // Inject content (Removed the bullet points per request)
                 modalBody.innerHTML = `
-                    <h2 style="color:var(--secondary); margin-bottom:20px;">${data.title}</h2>
-                    <ul style="list-style:none; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
-                        ${data.topics.map(t => `<li style="color:var(--text-gray); background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">• ${t}</li>`).join('')}
+                    <h2 class="modal-title">${data.title}</h2>
+                    <ul class="modal-list">
+                        ${data.topics.map(t => `<li>${t}</li>`).join('')} 
                     </ul>`;
-                modal.style.display = "block";
+                
+                // Show modal with Flex centering logic
+                modal.style.display = "flex"; 
                 document.body.style.overflow = "hidden"; // Stop background scroll
             }
         }
     });
 
-    if (closeBtn) {
-        closeBtn.onclick = () => {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        };
-    }
-
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
+    const closeModal = () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
     };
+
+    if (closeBtn) closeBtn.onclick = closeModal;
+    window.onclick = (e) => { if (e.target == modal) closeModal(); };
 
     // --- MOBILE MENU (HAMBURGER) ---
     const hamburger = document.querySelector('.hamburger');
@@ -118,14 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setTimeout(type, typeSpeed);
     }
-    type(); // Start typing
+    type(); // Start the typing effect
 
     // --- CONTACT FORM HANDLING ---
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault(); 
-            const formData = new FormData(this);
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
 
@@ -134,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             fetch("https://formsubmit.co/ajax/gurusaireddy1234@gmail.com", {
                 method: "POST",
-                body: formData
+                body: new FormData(this)
             })
             .then(response => response.json())
             .then(data => {
@@ -160,7 +159,7 @@ window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     
-    // Navbar background transition
+    // Navbar background transition logic
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(36, 10, 44, 0.98)';
         navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
@@ -169,7 +168,7 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = 'none';
     }
 
-    // Active link highlighting
+    // Active nav link highlighting logic
     let current = "";
     sections.forEach((section) => {
         const sectionTop = section.offsetTop;
