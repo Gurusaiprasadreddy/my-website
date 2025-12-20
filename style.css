@@ -876,18 +876,18 @@ body::after {
     flex-direction: column;
     gap: 1.2rem;
 }
-
 .form-group input, 
 .form-group textarea {
     width: 100%;
     padding: 16px 20px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.05) !important; /* Semi-transparent dark */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    color: var(--text-white);
+    color: #ffffff !important; /* Force white text */
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    transition: 0.3s;
+    transition: 0.3s ease;
+    outline: none;
 }
 
 .form-group textarea {
@@ -895,12 +895,26 @@ body::after {
     resize: none;
 }
 
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover, 
+.form-group input:-webkit-autofill:focus,
+.form-group textarea:-webkit-autofill,
+.form-group textarea:-webkit-autofill:hover,
+.form-group textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important;
+    /* This creates a transition that effectively hides the white background */
+    transition: background-color 5000s ease-in-out 0s; 
+    box-shadow: 0 0 0px 1000px #1a0520 inset !important; /* Match your bg-light color */
+}
+
 .form-group input:focus, 
 .form-group textarea:focus {
-    outline: none;
-    border-color: var(--secondary);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 10px rgba(18, 194, 233, 0.1);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--secondary); /* Cyan Glow */
+    box-shadow: 0 0 15px rgba(18, 194, 233, 0.2);
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .contact-form button {
