@@ -24,6 +24,7 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -64,103 +65,133 @@
 
     <!-- ABOUT MY Details SECTION -->
     <section id="about" class="about section-padding">
-        <div class="container">
-            <div class="about-grid">
-                <!-- Image Side -->
-                <div class="about-img-box">
-                    <!-- Replace with your actual image file name -->
-                    <img src="sai.jpg" alt="Working" class="about-img">
-                    <div class="exp-badge">
-                        <h3>B.Tech</h3>
-                        <span>CSE Student</span>
-                    </div>
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-img-box">
+                <img src="sai.jpg" alt="Guru Sai Prasad Reddy" class="about-img">
+                <div class="exp-badge">
+                    <h3>B.Tech</h3>
+                    <span>CSE Student</span>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="section-subtitle">Who I Am</div>
+                <h3>About <span class="text-orange">Me</span></h3>
+                
+                <p class="about-text">
+                    I am currently pursuing my <strong>B.Tech in Computer Science & Engineering</strong> at 
+                    <strong>Amrita Vishwa Vidyapeetham, Coimbatore</strong> (2023-2027). 
+                    I have a strong foundation in Data Structures, Algorithms, Web Development and problem-solving.
+                    I enjoy creating clean and functional applications, experimenting with emerging technologies, 
+                    and continuously improving my technical abilities.
+                </p>
+                
+                <div class="personal-info" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 30px; color: var(--text-gray);">
+                    <div><i class="fas fa-envelope text-orange"></i> gurusaireddy1234@gmail.com</div>
+                    <div><i class="fas fa-phone text-orange"></i> +91-7995522939</div>
+                    <div><i class="fas fa-map-marker-alt text-orange"></i> AndhraPradesh, India</div>
                 </div>
 
-                <!-- Content Side -->
-                <div class="about-content">
-                    <div class="section-subtitle">Who I Am</div>
-                    <h3>About <span class="text-orange">Me</span></h3>
-                    
-                    <p class="about-text">
-                        I am currently pursuing my <strong>B.Tech in Computer Science & Engineering</strong> at 
-                        <strong>Amrita Vishwa Vidyapeetham, Coimbatore</strong> (2023-2027). 
-                        I have a strong foundation in Data Structures, Algorithms, Web Development and problem-solving.
-                        I enjoy creating clean and functional applications, experimenting with emerging technologies, 
-                        and continuously improving my technical abilities.
-                    </p>
-                    
-                    <div class="personal-info" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 30px; color: var(--text-gray);">
-                        <div><i class="fas fa-envelope text-orange"></i> gurusaireddy1234@gmail.com</div>
-                        <div><i class="fas fa-phone text-orange"></i> +91-7995522939</div>
-                        <div><i class="fas fa-map-marker-alt text-orange"></i> AndhraPradesh, India</div>
-                    </div>
+                <a href="Guru_Resume.pdf" target="_blank" class="resume-btn">
+                    View Resume <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ABOUT MY Skills SECTION -->
+<section id="skills" class="skills section-padding">
+    <div class="container">
+        <div class="section-title-wrapper" style="text-align: center; margin-bottom: 60px;">
+            <h2 class="section-title">Technical <span class="text-gradient">Skills</span></h2>
+            <p class="section-subtitle">Academic Excellence & Skills</p>
+        </div>
 
-                    <!-- SKILLS SECTION -->
-                    <h3 class="toolkit-title">Skills</h3>
-                    
-                    <!-- 1. Programming Languages -->
-                    <div class="skill-group">
-                        <h4 class="skill-subtitle">Programming Languages:</h4>
-                        <div class="toolkit-grid">
-                            <div class="toolkit-card">C</div>
-                            <div class="toolkit-card">C++</div>
-                            <div class="toolkit-card">Java</div>
-                            <div class="toolkit-card">Python</div>
-                        </div>
-                    </div>
+        <div class="skills-masonry">
+            <div class="skill-box">
+                <div class="box-header">
+                    <i class="fas fa-code"></i>
+                    <h4>Programming Languages</h4>
+                </div>
+                <div class="tag-cloud">
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+            </div>
 
-                    <!-- 2. Web Development -->
-                    <div class="skill-group">
-                        <h4 class="skill-subtitle">Web Development:</h4>
-                        
-                        <!-- Frontend -->
-                        <div class="sub-label">Frontend:</div>
-                        <div class="toolkit-grid">
-                            <div class="toolkit-card">HTML</div>
-                            <div class="toolkit-card">CSS</div>
-                            <div class="toolkit-card">JS</div>
-                            <div class="toolkit-card">React</div>
-                        </div>
-                        
-                        <!-- Backend -->
-                        <div class="sub-label">Backend:</div>
-                        <div class="toolkit-grid">
-                            <div class="toolkit-card">Node.js</div>
-                            <div class="toolkit-card">MongoDB</div>
-                        </div>
+            <div class="skill-box">
+                <div class="box-header">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>Web Development</h4>
+                </div>
+                <div class="sub-group">
+                    <h5>Frontend</h5>
+                    <div class="tag-cloud">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JS</span>
+                        <span class="skill-tag">React</span>
                     </div>
+                </div>
+                <div class="sub-group">
+                    <h5>Backend</h5>
+                    <div class="tag-cloud">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- 3. Databases -->
-                    <div class="skill-group">
-                        <h4 class="skill-subtitle">Databases:</h4>
-                        <div class="toolkit-grid">
-                            <div class="toolkit-card">MySQL</div>
-                        </div>
-                    </div>
+            <div class="skill-box">
+                <div class="box-header">
+                    <i class="fas fa-database"></i>
+                    <h4>Databases</h4>
+                </div>
+                <div class="tag-cloud">
+                    <span class="skill-tag">MySQL</span>
+                </div>
+            </div>
+            
+            
+            <div class="skill-box highlight">
+                <div class="box-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Course Concepts</h4>
+                </div>
+                <div class="concept-list">
+                    <div class="concept-btn clickable" data-skill="DSA">Data Structures & Algorithms</div>
+                    <div class="concept-btn clickable" data-skill="DBMS">Database Management System</div>
+                    <div class="concept-btn clickable" data-skill="OOPS">Object-Oriented Programming</div>
+                    <div class="concept-btn clickable" data-skill="OS">Operating System</div>
+                    <div class="concept-btn clickable" data-skill="ML">Machine Learning</div>
+                    <div class="concept-btn clickable" data-skill="CN">Computer Networks</div>
+                </div>
+            </div>
 
-                    <!-- 4. Tools & Platforms -->
-                    <div class="skill-group">
-                        <h4 class="skill-subtitle">Tools & Platforms:</h4>
-                        <div class="toolkit-grid">
-                            <div class="toolkit-card">VS Code</div>
-                            <div class="toolkit-card">Eclipse</div>
-                            <div class="toolkit-card">PyCharm</div>
-                            <div class="toolkit-card">Ubuntu</div>
-                            <div class="toolkit-card">Code::Blocks</div>
-                            <div class="toolkit-card">Shell Script</div>
-                            <div class="toolkit-card">Git</div>
-                            <div class="toolkit-card">Linux</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Resume Button -->
-                    <a href="Guru_Resume.pdf" target="_blank" class="resume-btn">
-                   View Resume <i class="fas fa-download"></i>
-                    </a>
+            <div class="skill-box">
+                <div class="box-header">
+                    <i class="fas fa-tools"></i>
+                    <h4>Tools & Platforms</h4>
+                </div>
+                <div class="tag-cloud">
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Ubuntu</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Shell Script</span>
+                    <span class="skill-tag">Eclipse</span>
+                    <span class="skill-tag">Code::Blocks</span>
+                    <span class="skill-tag">PyCharm</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+    
 
     <!-- PROJECTS SECTION -->
     <section id="projects" class="projects section-padding">
@@ -369,5 +400,12 @@
 
     <!-- Javascript Link -->
     <script src="script.js"></script>
+    <div id="skillModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modalBody">
+            </div>
+    </div>
+</div>
 </body>
 </html>

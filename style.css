@@ -436,6 +436,194 @@ body::after {
     color: var(--accent-orange);
 }
 
+
+/* --- Course Details Modal --- */
+.modal {
+  display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: var(--bg-dark); /* Full screen background hide */
+    overflow-y: auto;
+}
+
+.modal-content {
+   background: var(--bg-light);
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid var(--glass-border);
+    width: 90%;
+    max-width: 800px;
+    border-radius: 24px;
+    position: relative;
+}
+
+.close-modal {
+   position: absolute;
+    right: 25px; top: 15px;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close-modal:hover { color: var(--secondary); }
+
+.toolkit-card.clickable {
+    cursor: pointer;
+    border-color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.toolkit-card.clickable:hover {
+    background: var(--secondary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.modal-title {
+    color: var(--secondary);
+    margin-bottom: 25px;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 15px;
+}
+
+.modal-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.modal-list li {
+    padding: 10px;
+    color: var(--text-gray);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+
+.modal-list li::before {
+    content: "•";
+    color: var(--accent-orange);
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+/* --- MODERN SKILLS LAYOUT --- */
+.skills-masonry {
+    column-count: 3; /* Desktop: 3 columns */
+    column-gap: 25px;
+    width: 100%;
+}
+
+.skill-box {
+    break-inside: avoid; /* Prevents card from splitting across columns */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
+
+.skill-box:hover {
+    transform: translateY(-8px);
+    border-color: var(--secondary);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.skill-box.highlight {
+    border: 1px solid rgba(18, 194, 233, 0.3);
+    background: linear-gradient(145deg, rgba(151, 51, 238, 0.05), rgba(18, 194, 233, 0.05));
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--accent-orange);
+    padding-left: 12px;
+}
+
+.box-header i {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.box-header h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Tag Cloud (Bubble style) */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-gray);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* Concept Buttons (Bolder style) */
+.concept-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.concept-btn {
+    background: rgba(18, 194, 233, 0.05);
+    border: 1px solid rgba(18, 194, 233, 0.2);
+    color: var(--secondary);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.concept-btn:hover {
+    background: var(--secondary);
+    color: var(--bg-dark);
+    transform: translateX(5px);
+}
+
+.sub-group h5 {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 0 8px 5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .skills-masonry { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+    .skills-masonry { column-count: 1; }
+}
+
 /* --- 6. PROJECTS SECTION STYLES --- */
 .projects-grid {
     display: grid;

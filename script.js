@@ -1,71 +1,166 @@
-// 1. Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+/**
+ * 1. CONFIGURATION & DATA
+ */
+const coursework = {
+    "DSA": {
+        title: "📘 Data Structures and Algorithms",
+        topics: ["Introduction to DS", "Arrays & Strings", "Linked Lists", "Stacks & Queues", "Recursion", "Searching & Sorting", "Trees (Binary, BST, AVL, Heap)", "Graphs (BFS, DFS, Shortest Path)", "Hashing", "Greedy Algorithms", "Divide and Conquer", "Dynamic Programming", "Backtracking", "Complexity Analysis"]
+    },
+    "DBMS": {
+        title: "🗄️ Database Management System",
+        topics: ["Architecture", "ER & Relational Model", "Relational Algebra", "SQL (DDL, DML, DCL, TCL)", "Constraints & Keys", "Normalization", "Transactions & ACID", "Concurrency Control", "Deadlocks", "Indexing", "Query Optimization", "Security & Recovery"]
+    },
+    "OOPS": {
+        title: "🧠 Object-Oriented Programming",
+        topics: ["Classes and Objects", "Encapsulation", "Abstraction", "Inheritance", "Polymorphism", "Constructors & Destructors", "Access Specifiers", "Interfaces", "Abstract Classes", "Overloading & Overriding", "Exception Handling", "Memory Management", "SOLID Principles"]
+    },
+    "OS": {
+        title: "💻 Operating System",
+        topics: ["Process Management", "Threads", "Scheduling Algorithms", "IPC & Synchronization", "Deadlocks", "Memory Management", "Paging & Segmentation", "Virtual Memory", "Page Replacement", "File System", "Disk Scheduling"]
+    },
+    "ML": {
+        title: "🤖 Machine Learning",
+        topics: ["Data Preprocessing", "Feature Engineering", "Supervised Learning", "Unsupervised Learning", "Regression & Classification", "Clustering", "Dimensionality Reduction", "Evaluation Metrics", "Bias-Variance Tradeoff", "Neural Networks", "Python Libraries (NumPy, Scikit-learn)"]
+    },
+    "CN": {
+        title: "🌐 Computer Networks",
+        topics: ["Network Topologies", "Transmission Media", "OSI & TCP/IP Models", "Data Link Layer", "Network Layer", "Transport Layer", "Application Layer", "IP Addressing & Subnetting", "Routing Algorithms", "Switching Techniques", "Network Security"]
+    }
+};
 
-if(hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active'); // Animates the burger icon (optional)
-        navMenu.classList.toggle('active');   // Slides the menu in
+/**
+ * 2. CORE FUNCTIONALITY (Wait for DOM)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- MODAL LOGIC (Event Delegation) ---
+    const modal = document.getElementById("skillModal");
+    const modalBody = document.getElementById("modalBody");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.addEventListener('click', (e) => {
+        // Check if the clicked element (or its parent) has the 'clickable' class
+        const target = e.target.closest('.clickable');
+        if (target) {
+            const skillKey = target.getAttribute('data-skill');
+            const data = coursework[skillKey];
+            
+            if (data) {
+                modalBody.innerHTML = `
+                    <h2 style="color:var(--secondary); margin-bottom:20px;">${data.title}</h2>
+                    <ul style="list-style:none; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
+                        ${data.topics.map(t => `<li style="color:var(--text-gray); background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">• ${t}</li>`).join('')}
+                    </ul>`;
+                modal.style.display = "block";
+                document.body.style.overflow = "hidden"; // Stop background scroll
+            }
+        }
     });
 
-    // Close menu when link is clicked
-    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }));
-}
-
-// 2. Typewriter Effect (CONSTANT SPEED)
-const typeText = document.querySelector('.typing-effect');
-const words = ["CS Student", "Developer", "Problem Solver"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function type() {
-    if(!typeText) return; // Guard clause
-    
-    const currentWord = words[wordIndex];
-    
-    // Typing Logic
-    if(isDeleting) {
-        typeText.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typeText.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        };
     }
 
-    // SPEED SETTINGS (Adjust these numbers to change speed)
-    let typeSpeed = 100; // Typing speed (smaller = faster)
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    };
 
-    if(isDeleting) {
-        typeSpeed = 50; // Deleting speed (faster than typing)
+    // --- MOBILE MENU (HAMBURGER) ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active'); 
+            navMenu.classList.toggle('active');   
+        });
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
     }
 
-    // Logic for pauses
-    if(!isDeleting && charIndex === currentWord.length) {
-        // Pause at the end of the word
-        typeSpeed = 2000; // 2 seconds pause
-        isDeleting = true;
-    } else if(isDeleting && charIndex === 0) {
-        // Pause before starting the next word
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500; // 0.5 seconds pause
+    // --- TYPEWRITER EFFECT ---
+    const typeText = document.querySelector('.typing-effect');
+    const words = ["CS Student", "Developer", "Problem Solver"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        if (!typeText) return; 
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typeText.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typeText.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000; 
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 500; 
+        }
+        setTimeout(type, typeSpeed);
     }
+    type(); // Start typing
 
-    // The critical fix: Only one timeout is set here
-    setTimeout(type, typeSpeed);
-}
+    // --- CONTACT FORM HANDLING ---
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault(); 
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
 
-document.addEventListener('DOMContentLoaded', type);
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
 
-// 3. Navbar Scroll Effect
+            fetch("https://formsubmit.co/ajax/gurusaireddy1234@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Message Sent Successfully!');
+                contactForm.reset(); 
+            })
+            .catch(error => {
+                alert('Something went wrong. Please try again.');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+});
+
+/**
+ * 3. GLOBAL SCROLL HANDLERS (Navbar & Active Links)
+ */
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if(!navbar) return;
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
     
+    // Navbar background transition
     if (window.scrollY > 50) {
         navbar.style.background = 'rgba(36, 10, 44, 0.98)';
         navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
@@ -73,38 +168,20 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(36, 10, 44, 0.85)';
         navbar.style.boxShadow = 'none';
     }
-});
 
-// 4. Contact Form Handling (AJAX)
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent default page reload
-
-        const formData = new FormData(this);
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-
-        submitBtn.innerHTML = 'Sending...';
-        submitBtn.disabled = true;
-
-        fetch("https://formsubmit.co/ajax/gurusaireddy1234@gmail.com", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Message Sent Successfully!');
-            contactForm.reset(); // Clear the form
-        })
-        .catch(error => {
-            alert('Something went wrong. Please try again.');
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-        });
+    // Active link highlighting
+    let current = "";
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 150) {
+            current = section.getAttribute("id");
+        }
     });
-}
+
+    navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
+        }
+    });
+});
