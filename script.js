@@ -184,3 +184,32 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// --- SCROLL REVEAL ANIMATIONS ---
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 200,
+    reset: true // Elements will animate every time they enter the viewport
+});
+
+// Home/Hero Section
+sr.reveal('.hero-text', { origin: 'left' });
+sr.reveal('.hero-img-wrapper', { origin: 'right', delay: 400 });
+
+// About Section
+sr.reveal('.about-img-box', { origin: 'left' });
+sr.reveal('.about-content', { origin: 'right', delay: 400 });
+
+// Skills Section
+sr.reveal('.arsenal-label', { interval: 100 });
+sr.reveal('.badge', { interval: 50, scale: 0.85 });
+
+// Projects Section
+sr.reveal('.section-title-wrapper');
+sr.reveal('.project-card', { interval: 200, rotate: { x: 20, y: 0, z: 0 } });
+
+// Contact Section
+sr.reveal('.contact-info', { origin: 'left' });
+sr.reveal('.contact-form', { origin: 'right' });

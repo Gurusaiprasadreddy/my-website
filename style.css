@@ -1,3 +1,4 @@
+
 /* --- 1. VARIABLES & RESET --- */
 :root {
     --bg-dark: #240A2C;
@@ -500,7 +501,7 @@ body::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
-    list-style: none; /* Removes Dots */
+    list-style: none;
     padding: 0;
 }
 
@@ -512,28 +513,141 @@ body::after {
     font-size: 1rem;
     border-left: 4px solid var(--accent);
     transition: 0.3s ease;
-    list-style-type: none; /* Double insurance to remove dots */
+    list-style-type: none; 
 }
 
 .modal-list li::before {
     content: none !important; 
 }
 
-/* --- MODERN SKILLS LAYOUT --- */
-.skills-masonry {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+/* --- NEW TECHNICAL ARSENAL STYLE --- */
+
+.dot-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px; 
+    padding: 40px;
+    border-radius: 20px;
 }
 
-.skill-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 25px;
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
+.arsenal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    text-align: left;
 }
+
+.arsenal-label {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 1.4rem; 
+    color: #fff;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--secondary);
+    padding-left: 20px;
+    font-weight: 600;
+}
+
+.arsenal-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+}
+
+/* This is the main class to control the size of the skill boxes */
+.badge {
+    background: rgba(110, 33, 177, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 24px; 
+    border-radius: 10px; 
+    font-size: 1.1rem;   
+    display: flex;
+    align-items: center;
+    gap: 12px;           
+    transition: all 0.3s ease;
+    min-width: 140px;    
+    justify-content: center;
+}
+
+.badge i {
+    color: var(--secondary);
+    font-size: 1.3rem;   
+}
+
+.badge:hover {
+    border-color: var(--secondary);
+    transform: translateY(-5px); /* Lift higher on hover */
+    box-shadow: 0 10px 25px rgba(18, 194, 233, 0.3);
+    background: rgba(151, 51, 238, 0.2);
+}
+
+.badge.clickable {
+    padding: 18px 30px; /* Even larger for the Core Concepts */
+    border: 1px solid rgba(18, 194, 233, 0.4);
+}
+
+.badge.clickable small {
+    font-size: 0.75rem; 
+}
+
+
+
+/* --- UNIVERSAL INFO HINT STYLE --- */
+
+.dot-bg {
+    background-image: none !important; 
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.info-hint {
+    position: relative;
+    background: rgba(110, 33, 177, 0.15); 
+    transition: all 0.3s ease;
+    padding-bottom: 12px; 
+}
+
+/* 2. HIDE the text by default for ALL concept badges */
+.info-hint small, 
+.highlight-badge small {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--secondary); 
+    font-size: 0.65rem;
+    white-space: nowrap;
+    opacity: 0 !important;    
+    visibility: hidden !important; 
+    transition: opacity 0.3s ease, bottom 0.3s ease, visibility 0.3s;
+    pointer-events: none;
+}
+
+.info-hint:hover small, 
+.highlight-badge:hover small {
+    opacity: 1 !important;
+    visibility: visible !important;
+    bottom: -14px; 
+}
+
+/* TOUCH EFFECT: Glow only on hover */
+.badge.clickable:hover {
+    background: #000;
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px var(--secondary); /* This adds the glow on touch */
+}
+
+.highlight-badge small {
+    color: #13c1f1 !important; 
+}
+.highlight-badge {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Reset to match others */
+}
+
+.highlight-badge:hover {
+    border: 2px solid var(--secondary) !important;
+    box-shadow: 0 0 15px var(--secondary);
+}
+/* --- MODERN SKILLS LAYOUT --- */
 
 .skill-box:hover {
     transform: translateY(-10px);
@@ -566,12 +680,6 @@ body::after {
     font-weight: 600;
 }
 
-/* Tag Cloud (Bubble style) */
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
 
 .skill-tag {
     background: rgba(255, 255, 255, 0.05);
@@ -594,6 +702,7 @@ body::after {
     flex-direction: column;
     gap: 10px;
 }
+
 
 .concept-btn {
     background: rgba(18, 194, 233, 0.05);
@@ -1019,11 +1128,11 @@ body::after {
     /* 2. Adjust the content box size for mobile */
     .modal-content {
         padding: 25px 20px;
-        width: 95%; /* Take most of the screen width */
-        max-height: 85vh; /* Don't let it go off the screen vertically */
+        width: 95%; 
+        max-height: 85vh; 
         border-radius: 20px;
-        overflow-y: auto; /* Enable scrolling if the list is long */
-        margin: 0; /* Reset margins for flex centering */
+        overflow-y: auto; 
+        margin: 0; 
     }
 
     /* 3. Scale down the title */
@@ -1064,4 +1173,48 @@ textarea:-webkit-autofill:focus {
     -webkit-text-fill-color: #ffffff !important;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: 0 0 0px 1000px #1a0520 inset !important; /* Match your card background */
+}
+
+/* --- SMOOTH HOVER FOR ALL INTERACTIVES --- */
+a, button, .project-card, .badge {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* --- ADD A MOVING BACKGROUND GRADIENT --- */
+body {
+    background: linear-gradient(-45deg, #240A2C, #2e0e36, #1a0520, #240A2C);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- ENHANCED PROJECT CARD ANIMATION --- */
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(151, 51, 238, 0.3);
+}
+
+/* --- FLOATING ANIMATION FOR HERO IMAGE --- */
+.hero-img {
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- GLOW EFFECT FOR SECTION TITLES --- */
+.section-title {
+    text-shadow: 0 0 20px rgba(18, 194, 233, 0.3);
+}
+
+/* --- REVEAL CLASS (Safety) --- */
+.reveal {
+    visibility: hidden; 
 }
