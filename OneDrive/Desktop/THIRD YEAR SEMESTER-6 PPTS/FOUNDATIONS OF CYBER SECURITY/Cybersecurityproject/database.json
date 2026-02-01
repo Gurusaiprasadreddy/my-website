@@ -1,0 +1,110 @@
+{
+    "users": {
+        "CB.SC.U4CSE23111": {
+            "salt": "6f13cd9c7521c8f25d92fd59a8fa9aea",
+            "key": "f3b9b68b26aa4daa9a81cd3e24ffd62c57bab0fc8b015fb5c63a3c76b371714c",
+            "role": "Student",
+            "email": "student1@amrita.edu",
+            "student_type": "hosteller"
+        },
+        "CB.SC.U4CSE23112": {
+            "salt": "68afb8baf93fa1abf90504783573b59e",
+            "key": "f561780dbdf4cb75417551db6a7d58de04d46bfaa37304f8a5df76d97b11b296",
+            "role": "Student",
+            "email": "student2@amrita.edu",
+            "student_type": "dayscholar"
+        },
+        "accountant1": {
+            "salt": "3d46f92666508b063a2670d6eab7ecc4",
+            "key": "e1c1c447de1d5ee2d27b90e633b7e405d89c23cafb6ab3f8cdfd3d53af219e70",
+            "role": "Accountant",
+            "email": "accounts@amrita.edu",
+            "student_type": null
+        },
+        "admin1": {
+            "salt": "27e6143d7dcb1408c10d3db8a96dadb1",
+            "key": "df1c269bf7ad74c214da51aafad9ad2ce5b858dd15bbb74a034d82caf558df50",
+            "role": "Admin",
+            "email": "admin@amrita.edu",
+            "student_type": null
+        },
+        "accountant2": {
+            "salt": "bc7eaef17ca4d891ce2583bb7325e71a",
+            "key": "8a6baa292ca996acc22a79eec9bd813be334d7cca54313a91efb24fda74b2e59",
+            "role": "Accountant",
+            "email": "gangeleader@gmail.com",
+            "student_type": null
+        }
+    },
+    "fees": {
+        "CB.SC.U4CSE23111": {
+            "Tuition Fee": {
+                "amount": 125000,
+                "status": "Paid",
+                "date": "2026-01-28 11:03:23",
+                "payer_name": "gurusaiprasadreddy",
+                "issuing_bank": "Axis",
+                "settlement": "RuPay Network",
+                "acquiring_bank": "Axis Corporate",
+                "encrypted_card": "AES_ENC_37658_5842",
+                "signature": "bkIrTzJuTW1LOXR2ZC9GYlRtSGQzd09jaG1BSjFTSVdVbjBCWkhPak8vRGNQUmIvd0xWV3lUV2tkeFlSaWhzL1VXQ24zV0hNWnJDUEZOeEFRMjgyMXlsTXllUDJvZWZwZk9HNnFPZ3VzSjNYYWdxRmRHeGFhK0d4Mzk3S29YK3ZNRW1RdVBGaFdycXlWRkZ1UnZZTlNsTnhrK0Z3MHk5RW9QL0dlb1Q3TWZEN2NhN3VJNXo0MjVsR3VFSVlMaUR0TWQ3TGEyQjhSeXVYYzdQYzlqTmY5c3NaZkFsMHBDRm01YVVBVjFQOHpRWjEzZWx3WmZuVE10WE1FeWkvekR6aTdlQ0xraGVjZVhEczFmY1JVaXZQZUVmRXQ5SGgxQ3VUQXZxS3RzNDVEKzJCR0FtNTZNbmRENyt3eUtQSllDaTV3aEZGcWhHYmxRUStaMUQwY0FPWWVnPT0="
+            },
+            "Hostel Fee": {
+                "amount": 45000,
+                "status": "Paid",
+                "date": "2026-01-28 11:03:49",
+                "payer_name": "gurusaiprasadreddy",
+                "issuing_bank": "SBI",
+                "settlement": "Mastercard",
+                "acquiring_bank": "ICICI Bank",
+                "encrypted_card": "AES_ENC_98896_5842",
+                "signature": "c0FtUmRBem9OOWFEVVl3b1EwWlEwNVFPcmVkZ0FkN05ZQVArSm5aQWNWdnoySzhQbDd1bTZGWFZ2QVQvWFpTbnRCRlhtMkNKelFOZHFIeG5kVGxoeWVheS9jVmRybW4yMkVKYU9HWWVoYjRxTld5MWk3MExZOWpVWDBURVBJZVRCeEtRSWY3RFBxTHRIRlZxTGliT0l0TlNjY3JFZXNUWnVhRlhDTnNBa3psYXJsYTR2Z1RCT1dnVHRObXh1MFFOK3BtbG1pZEtKWUs1c3pNS2xkRmcvblZDcWMrUk02TjR5SW9aTTFmWjNvVWxyMlVYdjZsdktpSFZ1OVlJK0NjU2pMcTU1eVJ2TFFhK0I5Y3ZVSnRzeUVZaGgzNFovTUdGQm9VamlXUjdNMDE5Ynh1emdVMHBBWEFtZnZRd0hldVBhNmRvOG9SUzUvM25lK0dpWHBHOU1BPT0="
+            },
+            "Mess Fee": {
+                "amount": 25000,
+                "status": "Paid",
+                "date": "2026-01-28 11:04:22",
+                "payer_name": "gurusaiprasadreddy",
+                "issuing_bank": "UPI App",
+                "settlement": "Mastercard",
+                "acquiring_bank": "SBI Treasury",
+                "encrypted_card": "AES_ENC_63347_5842",
+                "signature": "T2FZTnNUaDJZMW9ReXFFbWhTaW9DREhqUTRBNys5d1hSaWd2dUs0TSsyTjBKc2M2WjNqWm1UTUg0K1QyUFQxWlMzU1VGQitQbGNJd3Z5cHR5UlhMWUY2WGJMYVFCYlc1VC9ReHkxZUozbTNtUUVqclhEWkp1TEV6KzZSS2VVZ2tDZk0xUUtSaXZ3bmswU2RTU21Va2JPT3p4bUlZbEMxblBoR2ZWZVE1MVRsWFB1OHlJNjdXR2UvTE1qMC9yK0NBRXRmUUR6aXlmRk1XdGpsYUM0M2lJZnZwSTJVNk02ZEMvU2I1b2oyRXZFWmNNejZ5TVQvVWY0bld4UDFVajZKNWluL1BrNDdENGo0NDV0Ym9kVHc2L3VmenFLN2hUUmNFTUJpNGZ1RE50SVhKSmc5RDJpS3NUSkd2SDBsTFQ2TWpyVmRsYVJrSlVLdGc0SjZDSWswYVNRPT0="
+            },
+            "Bus Fee": {
+                "amount": 15000,
+                "status": "Pending",
+                "date": "Due Now"
+            }
+        },
+        "CB.SC.U4CSE23112": {
+            "Tuition Fee": {
+                "amount": 125000,
+                "status": "Paid",
+                "date": "2026-01-28 11:06:45",
+                "payer_name": "vijay kumar",
+                "issuing_bank": "ICICI",
+                "settlement": "NPCI Switch",
+                "acquiring_bank": "HDFC Bank",
+                "encrypted_card": "AES_ENC_44839_1566",
+                "signature": "U1pTck0waEozSmtIR2ZCbEN5ZDByUitEdDdJV1A5NFVpVnJxUmp2K0Z0NUtUZFpaVVhLTnlkVGtseStCUzFSSkdwdTBqSmpneS9XMVN3ck5RV2wwQllKVHhVR0pXY2NDR0YwODNsUTRsMkNlVmZ3V3dpRWp5MWg2dnBvVmYyVzVZRDY1VWZjMDFkaEN5anNKNzFyTzBHeFFGSHQxR2Job3ZqcHIwcnA4MjBUblR2NGRwQkxKR1NMcHJOM1VrQ2dpWHJMa3FJMkkzY052T3B6YWlwaE53d2dObVIwbjhVYXlxZ1ZjNmhwVzFKclM3TVpTZ0JHeXdNSzNaR0hXOWZLMlVpUXozbnpEOEkwVjRPTzB5K2YrVkliMTNUcTFEZmpqa3pMY1NtT1NKdDZCbFl6L2h5NU5GY25tZE0zQytVZ2NGakV2WXBTK1I1M0FNWmdxN2ZQajRRPT0="
+            },
+            "Hostel Fee": {
+                "amount": 45000,
+                "status": "Pending",
+                "date": "Due Now"
+            },
+            "Mess Fee": {
+                "amount": 25000,
+                "status": "Pending",
+                "date": "Due Now"
+            },
+            "Bus Fee": {
+                "amount": 15000,
+                "status": "Pending",
+                "date": "Due Now"
+            }
+        }
+    },
+    "deleted_logs": []
+}
