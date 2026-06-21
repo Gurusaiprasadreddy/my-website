@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 
 <body>
@@ -28,6 +28,7 @@
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#achievements" class="nav-link">Achievements</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
 
@@ -200,6 +201,18 @@
                 <p class="section-subtitle">Academic & Personal Works</p>
             </div>
 
+            <!-- Project Status Legend -->
+            <div class="project-legend">
+                <div class="legend-item">
+                    <span class="status-badge completed">Completed</span>
+                    <span>Implemented & Verified</span>
+                </div>
+                <div class="legend-item">
+                    <span class="status-badge ongoing">Ongoing</span>
+                    <span>Actively Developing</span>
+                </div>
+            </div>
+
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
@@ -211,7 +224,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">AI & Robotics</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">AI & Robotics</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Autonomous AI Robot</h3>
                         <p>An AI-powered mobile robot simulation in Webots. Features obstacle detection and path
                             planning with Reinforcement Learning.</p>
@@ -236,7 +252,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">DSA</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">DSA</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>DNA Sequence Matcher</h3>
                         <p>Genome sequencing tool using Burrows–Wheeler Transform. Optimized time complexity from O(n²)
                             to O(n log n).</p>
@@ -260,7 +279,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">Web & Database</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">Web & Database</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Digital Payment Platform</h3>
                         <p>A multi-service payment website similar to Paytm. Supports mobile recharges and bill
                             payments.</p>
@@ -284,7 +306,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">DSA</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">DSA</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Dynamic Route Recalculation</h3>
                         <p>Recalculates paths based on real-time traffic using Dijkstra’s Algorithm.</p>
                         <div class="tech-stack-row">
@@ -307,7 +332,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">EMBEDDED</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">EMBEDDED</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Smart Defense Radar Monitoring System</h3>
                         <p>Real-time object detection radar system using ultrasonic sensors and a microcontroller to
                             monitor surroundings with automated angle scanning.</p>
@@ -331,7 +359,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">Full Stack & AI</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">Full Stack & AI</div>
+                            <span class="status-badge ongoing">Ongoing</span>
+                        </div>
                         <h3>Canteen Management System</h3>
                         <p>
                             A full-stack campus food ordering and vendor management platform that enables
@@ -360,7 +391,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">Full Stack & Algorithm</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">Full Stack & Algorithm</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Academic Timetable Scheduler</h3>
                         <p>
                             A smart academic scheduling platform that automatically generates optimized,
@@ -389,7 +423,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">Data Analytics & Python</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">Data Analytics & Python</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Hotel Booking Demand Analysis</h3>
                         <p>
                             An end-to-end Exploratory Data Analysis (EDA) analyzing guest behavior, pricing trends
@@ -418,7 +455,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">Cybersecurity & Web</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">Cybersecurity & Web</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Secure Fee Payment System</h3>
                         <p>
                             A secure web application designed to demonstrate core cybersecurity concepts.
@@ -446,11 +486,16 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <div class="project-cat">Machine Learning & Python</div>
+                        <div class="project-cat-row">
+                            <div class="project-cat">Machine Learning & Python</div>
+                            <span class="status-badge completed">Completed</span>
+                        </div>
                         <h3>Long-Term Sales Forecasting</h3>
                         <p>
-                            A machine learning project that forecasts future sales amounts using 25 years of historical data. 
-                            Uses regression algorithms like Linear Regression and Decision Tree Regressor to analyze long-term trends, 
+                            A machine learning project that forecasts future sales amounts using 25 years of historical
+                            data.
+                            Uses regression algorithms like Linear Regression and Decision Tree Regressor to analyze
+                            long-term trends,
                             seasonality, and discount impacts.
                         </p>
                         <div class="tech-stack-row">
@@ -464,6 +509,190 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section id="achievements" class="achievements section-padding">
+        <div class="container">
+            <div class="section-title-wrapper" style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title">Certifications & <span class="text-gradient">Achievements</span></h2>
+                <p class="section-subtitle">My Credentials & Recognitions</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Achievement 1: GfG 160 Days of Problem Solving -->
+                <div class="project-card">
+                    <div class="card-img-holder">
+                        <img src="certificates/gfg-160.jpg" alt="GfG 160 Days of Problem Solving Certificate"
+                            class="card-image-direct">
+                        <div class="overlay">
+                            <a href="certificates.html?cert=gfg-160" target="_blank" class="view-btn"><i
+                                    class="fas fa-expand"></i> View image</a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-cat">DSA & Problem Solving</div>
+                        <h3>GfG 160 Days of Problem Solving</h3>
+                        <p>
+                            Successfully completed the GfG 160 – 160 Days of Problem Solving challenge organized by
+                            GeeksforGeeks,
+                            solving competitive coding problems consistently.
+                        </p>
+                        <div class="tech-stack-row">
+                            <span>GeeksforGeeks</span>
+                            <span>DSA</span>
+                            <span>Problem Solving</span>
+                            <span>Consistency</span>
+                        </div>
+                        <a href="certificates.html?cert=gfg-160" target="_blank" class="card-link">View Details <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Achievement 2: National Finalist -->
+                <div class="project-card">
+                    <div class="card-img-holder">
+                        <img src="certificates/shaastra-finalist.png" alt="NeuroHACK National Finalist Certificate"
+                            class="card-image-direct">
+                        <div class="overlay">
+                            <a href="certificates.html?cert=shaastra-finalist" target="_blank" class="view-btn"><i
+                                    class="fas fa-expand"></i> View image</a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-cat">Hackathon & Finalist</div>
+                        <h3>National Finalist | NeuroHACK</h3>
+                        <p>
+                            Qualified as national finalists in the prestigious NeuroHACK hackathon during Shaastra 2026
+                            at IIT Madras,
+                            collaborating in a team to solve real-world problems.
+                        </p>
+                        <div class="tech-stack-row">
+                            <span>IIT Madras</span>
+                            <span>Hackathon</span>
+                            <span>Teamwork</span>
+                            <span>Problem Solving</span>
+                        </div>
+                        <a href="certificates.html?cert=shaastra-finalist" target="_blank" class="card-link">View
+                            Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Achievement 3: NeuroHACK Participation -->
+                <div class="project-card">
+                    <div class="card-img-holder">
+                        <img src="certificates/shaastra-participation.jpg" alt="NeuroHACK Participation Certificate"
+                            class="card-image-direct">
+                        <div class="overlay">
+                            <a href="certificates.html?cert=shaastra-participation" target="_blank" class="view-btn"><i
+                                    class="fas fa-expand"></i> View image</a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-cat">Hackathon Participation</div>
+                        <h3>NeuroHACK Participant</h3>
+                        <p>
+                            Participated in the NeuroHACK challenge at Shaastra 2026, working in a collaborative team
+                            environment
+                            on complex analytical tasks.
+                        </p>
+                        <div class="tech-stack-row">
+                            <span>IIT Madras</span>
+                            <span>Shaastra</span>
+                            <span>Innovation</span>
+                            <span>Competition</span>
+                        </div>
+                        <a href="certificates.html?cert=shaastra-participation" target="_blank" class="card-link">View
+                            Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Achievement 4: Cyber Security -->
+                <div class="project-card">
+                    <div class="card-img-holder">
+                        <img src="certificates/udemy-cybersecurity.jpg" alt="Cyber Security Certificate"
+                            class="card-image-direct">
+                        <div class="overlay">
+                            <a href="certificates.html?cert=udemy-cybersecurity" target="_blank" class="view-btn"><i
+                                    class="fas fa-expand"></i> View image</a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-cat">Online Certification</div>
+                        <h3>Cyber Security & Ethical Hacking</h3>
+                        <p>
+                            Completed a certification course covering information security, ethical hacking
+                            methodologies,
+                            penetration testing, and defensive security strategies.
+                        </p>
+                        <div class="tech-stack-row">
+                            <span>Udemy</span>
+                            <span>Cybersecurity</span>
+                            <span>Ethical Hacking</span>
+                            <span>Network Security</span>
+                        </div>
+                        <a href="certificates.html?cert=udemy-cybersecurity" target="_blank" class="card-link">View
+                            Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Achievement 3: Project Management -->
+                <div class="project-card">
+                    <div class="card-img-holder">
+                        <img src="certificates/pmp-introduction.jpg" alt="PMP Certificate" class="card-image-direct">
+                        <div class="overlay">
+                            <a href="certificates.html?cert=pmp-introduction" target="_blank" class="view-btn"><i
+                                    class="fas fa-expand"></i> View image</a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-cat">Professional Training</div>
+                        <h3>Project Management (PMP)</h3>
+                        <p>
+                            Completed the PMP webinar, learning foundational project management phases, scoping, risk
+                            mitigation,
+                            and coordination concepts.
+                        </p>
+                        <div class="tech-stack-row">
+                            <span>EduHubSpot</span>
+                            <span>PMP</span>
+                            <span>Project Scoping</span>
+                            <span>Leadership</span>
+                        </div>
+                        <a href="certificates.html?cert=pmp-introduction" target="_blank" class="card-link">View Details
+                            <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Achievement 6: JavaScript Intro -->
+                <div class="project-card">
+                    <div class="card-img-holder">
+                        <img src="certificates/learntube-javascript.jpg" alt="JavaScript Certificate"
+                            class="card-image-direct">
+                        <div class="overlay">
+                            <a href="certificates.html?cert=learntube-javascript" target="_blank" class="view-btn"><i
+                                    class="fas fa-expand"></i> View image</a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="project-cat">Frontend Development</div>
+                        <h3>JavaScript Introduction</h3>
+                        <p>
+                            Successfully completed the JavaScript training course, covering core syntax, ES6+ features,
+                            DOM manipulation, and event handling.
+                        </p>
+                        <div class="tech-stack-row">
+                            <span>LearnTube</span>
+                            <span>JavaScript</span>
+                            <span>Web Dev</span>
+                            <span>ES6+</span>
+                        </div>
+                        <a href="certificates.html?cert=learntube-javascript" target="_blank" class="card-link">View
+                            Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
     const closeModal = () => {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
@@ -209,6 +210,9 @@ sr.reveal('.badge', { interval: 50, scale: 0.85 });
 // Projects Section
 sr.reveal('.section-title-wrapper');
 sr.reveal('.project-card', { interval: 200, rotate: { x: 20, y: 0, z: 0 } });
+
+// Achievements Section
+sr.reveal('.achievement-card', { interval: 200, rotate: { x: 20, y: 0, z: 0 } });
 
 // Contact Section
 sr.reveal('.contact-info', { origin: 'left' });

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Sai Prasad Reddy | Credentials</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Link to keep theme consistency -->
+    <link rel="stylesheet" href="style.css?v=1.2">
+    
+    <style>
+        /* Custom Styles for Certificates Page */
+        .cert-viewer-body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 50px;
+        }
+
+        .cert-viewer-header {
+            padding: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(151, 51, 238, 0.4);
+            transform: translateX(-5px);
+        }
+
+        /* Cube-shaped Thumbnails Grid */
+        .thumbnails-container {
+            margin-bottom: 50px;
+        }
+
+        .thumbnails-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .thumbnails-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .thumbnail-cube {
+            aspect-ratio: 1 / 1; /* Cube (Square) shape */
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .thumbnail-cube img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .thumbnail-cube:hover {
+            transform: scale(1.08) translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 20px rgba(18, 194, 233, 0.3);
+        }
+
+        .thumbnail-cube:hover img,
+        .thumbnail-cube.active img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .thumbnail-cube.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(151, 51, 238, 0.5);
+        }
+
+        .thumbnail-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(36, 10, 44, 0.9);
+            color: var(--text-white);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 8px 5px;
+            border-top: 1px solid var(--glass-border);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Active Display Area */
+        .active-display-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .active-display-container.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .active-image-box {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 35px;
+            background: #000;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .active-image-box:hover {
+            transform: scale(1.02);
+        }
+
+        .active-image-box img {
+            width: 100%;
+            display: block;
+        }
+
+        .active-content-box {
+            width: 100%;
+        }
+
+        .active-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 15px;
+        }
+
+        .active-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .active-meta span i {
+            margin-right: 6px;
+        }
+
+        .active-desc {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Responsive Layout adjustments */
+        @media (max-width: 768px) {
+            .thumbnails-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .active-display-container {
+                padding: 25px;
+            }
+
+            .active-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thumbnails-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cert-viewer-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="cert-viewer-body">
+
+    <div class="container">
+        <!-- Header -->
+        <header class="cert-viewer-header">
+            <div>
+                <h1 style="font-size: 2rem;"><span class="text-gradient">Credentials</span> & Certifications</h1>
+                <p style="color: var(--text-gray); font-size: 0.9rem; margin-top: 5px;">Guru Sai Prasad Reddy | Portfolio Viewer</p>
+            </div>
+            <a href="index.html#achievements" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        </header>
+
+        <!-- Thumbnails (Cubes) Grid -->
+        <section class="thumbnails-container">
+            <h2 class="thumbnails-title">Select a Certificate to View Details</h2>
+            <div class="thumbnails-grid" style="grid-template-columns: repeat(6, 1fr);">
+                <!-- Cube 1 -->
+                <div class="thumbnail-cube" data-id="gfg-160" title="GfG 160 Days of Problem Solving">
+                    <img src="certificates/gfg-160.jpg" alt="GfG 160">
+                    <div class="thumbnail-label">GfG 160 Days</div>
+                </div>
+                <!-- Cube 2 -->
+                <div class="thumbnail-cube" data-id="shaastra-finalist" title="National Finalist | NeuroHACK">
+                    <img src="certificates/shaastra-finalist.png" alt="NeuroHACK Finalist">
+                    <div class="thumbnail-label">NeuroHACK Finalist</div>
+                </div>
+                <!-- Cube 3 -->
+                <div class="thumbnail-cube" data-id="shaastra-participation" title="NeuroHACK Participant">
+                    <img src="certificates/shaastra-participation.jpg" alt="NeuroHACK Participant">
+                    <div class="thumbnail-label">NeuroHACK Participant</div>
+                </div>
+                <!-- Cube 4 -->
+                <div class="thumbnail-cube" data-id="udemy-cybersecurity" title="Cyber Security Course">
+                    <img src="certificates/udemy-cybersecurity.jpg" alt="Cyber Security">
+                    <div class="thumbnail-label">Cyber Security</div>
+                </div>
+                <!-- Cube 5 -->
+                <div class="thumbnail-cube" data-id="pmp-introduction" title="Project Management Webinar">
+                    <img src="certificates/pmp-introduction.jpg" alt="PMP Webinar">
+                    <div class="thumbnail-label">PMP Webinar</div>
+                </div>
+                <!-- Cube 6 -->
+                <div class="thumbnail-cube" data-id="learntube-javascript" title="JavaScript Introduction">
+                    <img src="certificates/learntube-javascript.jpg" alt="JavaScript Intro">
+                    <div class="thumbnail-label">JavaScript Intro</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active View Area -->
+        <main id="activeDisplay" class="active-display-container">
+            <div class="active-image-box" onclick="zoomImage()">
+                <img id="activeImg" src="" alt="Certificate Preview">
+            </div>
+            <div class="active-content-box">
+                <h2 id="activeTitle" class="active-title"></h2>
+                <div class="active-meta">
+                    <span id="activeIssuer"><i class="fas fa-award"></i> </span>
+                    <span id="activeDate"><i class="fas fa-calendar-alt"></i> </span>
+                </div>
+                <p id="activeDesc" class="active-desc"></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script to handle switching certificates -->
+    <script>
+        const certificateData = {
+            'gfg-160': {
+                title: '🏆 GeeksforGeeks 160 Days of Problem Solving',
+                issuer: 'GeeksforGeeks',
+                date: 'Feb 2026',
+                image: 'certificates/gfg-160.jpg',
+                description: 'Successfully completed the GfG 160 – 160 Days of Problem Solving challenge organized by GeeksforGeeks. Demonstrated consistency and commitment by solving coding problems over an extended period. Improved proficiency in Data Structures and Algorithms through regular practice. Covered topics including arrays, linked lists, stacks, queues, trees, graphs, recursion, and dynamic programming. Enhanced logical reasoning and computational thinking skills. Developed efficient problem-solving approaches and optimization techniques. Strengthened coding skills using industry-relevant programming concepts. Improved performance in coding assessments and technical interviews. This achievement highlights discipline, perseverance, and continuous learning in software development.'
+            },
+            'shaastra-finalist': {
+                title: '🏆 NeuroHACK National Finalist – IIT Madras',
+                issuer: 'Shaastra, IIT Madras',
+                date: 'Jan 2026',
+                image: 'certificates/shaastra-finalist.png',
+                description: 'Qualified as a National Finalist in NeuroHACK, a prestigious hackathon conducted during Shaastra 2026 at IIT Madras. Worked collaboratively in Team Sisirreddy772 to solve challenging real-world problems through innovation and technology. Demonstrated strong analytical thinking, teamwork, and problem-solving abilities under competitive conditions. Participated among talented students from various institutions across the country. Applied technical knowledge to develop and present impactful solutions. Enhanced skills in ideation, rapid prototyping, and technical presentation. Gained valuable exposure to national-level competition and industry-relevant challenges. Strengthened communication and collaboration skills while working in a team environment. This achievement reflects dedication, creativity, and a passion for technology.'
+            },
+            'shaastra-participation': {
+                title: '📜 NeuroHACK Participant – IIT Madras',
+                issuer: 'Shaastra, IIT Madras',
+                date: 'Jan 2026',
+                image: 'certificates/shaastra-participation.jpg',
+                description: 'Successfully participated in NeuroHACK, a national-level hackathon organized as part of Shaastra 2026 at the Indian Institute of Technology (IIT), Madras. Participated among talented students from top-tier institutions, working on challenging problems related to technology and innovation. Gained extensive hands-on experience, worked in a collaborative team environment, and enhanced technical, analytical, and presentation skills.'
+            },
+            'udemy-cybersecurity': {
+                title: '🔐 Cyber Security & Ethical Hacking – Udemy',
+                issuer: 'Udemy',
+                date: 'Dec 2025',
+                image: 'certificates/udemy-cybersecurity.jpg',
+                description: 'Completed a certification course in Cyber Security and Ethical Hacking. Learned fundamental concepts of information security and cyber threat analysis. Explored common vulnerabilities, attack vectors, and security risks faced by organizations. Gained knowledge of ethical hacking methodologies and penetration testing concepts. Studied network security, system security, and web application security principles. Understood the importance of confidentiality, integrity, and availability in cybersecurity. Learned best practices for protecting systems against cyber attacks. Developed awareness of security tools and defensive strategies. This certification enhanced understanding of secure computing and modern cybersecurity practices.'
+            },
+            'pmp-introduction': {
+                title: '📈 Introduction to Project Management (PMP Webinar)',
+                issuer: 'EduHubSpot (PMI REP)',
+                date: 'Sep 2025',
+                image: 'certificates/pmp-introduction.jpg',
+                description: 'Successfully completed the Introduction to Project Management (PMP) Webinar. Gained foundational knowledge of project management frameworks and methodologies. Learned the key phases of project initiation, planning, execution, monitoring, and closure. Understood project scope management and resource allocation strategies. Explored risk management techniques and mitigation planning. Developed awareness of stakeholder communication and team coordination practices. Learned how project timelines and deliverables are managed effectively. Gained insights into industry-standard PMP concepts and best practices. This certification strengthened leadership, organizational, and project planning skills for technical projects.'
+            },
+            'learntube-javascript': {
+                title: '📜 JavaScript Introduction – LearnTube.ai',
+                issuer: 'LearnTube.ai (Publicis Sapient)',
+                date: 'Jul 2025',
+                image: 'certificates/learntube-javascript.jpg',
+                description: 'Successfully completed the JavaScript Introduction certification program. Gained a strong foundation in JavaScript programming and web development concepts. Learned variables, data types, operators, loops, functions, and conditional statements. Explored DOM manipulation to create dynamic and interactive web pages. Understood event handling and user interaction techniques. Developed familiarity with modern JavaScript syntax and ES6 features. Practiced writing clean, reusable, and maintainable code. Improved debugging and problem-solving skills for frontend applications. This certification strengthened the foundation required for modern web application development.'
+            }
+        };
+
+        // DOM elements
+        const activeDisplay = document.getElementById('activeDisplay');
+        const activeImg = document.getElementById('activeImg');
+        const activeTitle = document.getElementById('activeTitle');
+        const activeIssuer = document.getElementById('activeIssuer');
+        const activeDate = document.getElementById('activeDate');
+        const activeDesc = document.getElementById('activeDesc');
+        const cubes = document.querySelectorAll('.thumbnail-cube');
+
+        // Function to update the view
+        function selectCertificate(certId) {
+            const data = certificateData[certId];
+            if (!data) return;
+
+            // Remove active class from all cubes
+            cubes.forEach(c => c.classList.remove('active'));
+
+            // Add active class to corresponding cube
+            const targetCube = document.querySelector(`.thumbnail-cube[data-id="${certId}"]`);
+            if (targetCube) targetCube.classList.add('active');
+
+            // Animate transition
+            activeDisplay.classList.remove('loaded');
+
+            setTimeout(() => {
+                activeImg.src = data.image;
+                activeImg.alt = data.title;
+                activeTitle.textContent = data.title;
+                activeIssuer.innerHTML = `<i class="fas fa-award"></i> ${data.issuer}`;
+                activeDate.innerHTML = `<i class="fas fa-calendar-alt"></i> ${data.date}`;
+                activeDesc.textContent = data.description;
+                
+                activeDisplay.classList.add('loaded');
+            }, 200);
+        }
+
+        // Add event listeners to cubes
+        cubes.forEach(cube => {
+            cube.addEventListener('click', () => {
+                const id = cube.getAttribute('data-id');
+                selectCertificate(id);
+                // Update URL parameter without reloading
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?cert=' + id;
+                window.history.pushState({path:newUrl}, '', newUrl);
+            });
+        });
+
+        // Open image in a new tab if clicked
+        function zoomImage() {
+            window.open(activeImg.src, '_blank');
+        }
+
+        // Initialize from URL parameter
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const certId = urlParams.get('cert');
+            if (certId && certificateData[certId]) {
+                selectCertificate(certId);
+            } else {
+                // Default to first (newest)
+                selectCertificate('gfg-160');
+            }
+        });
+    </script>
+</body>
+</html>
